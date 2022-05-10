@@ -1,0 +1,23 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+
+spring:
+  datasource:
+    # 数据库驱动
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据库连接地址
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=GMT
+    username: root
+    password: 168178
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/*.xml
+
+rsa:
+  public-key: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC4w1CB3hHppOL/62hGz1LIykEfGbGdmx27Hp2O9kLMaOmubj+XZOqlfo5sLZzqZ+b9TkOkZJA6gZTdo4LY0kd6JNaRCqmyGhzAE9TjatnmVvRGOIPVxqbP7LRLPonE0ooWABoJTt8EsvVEq5TzgrwyEgP6ZOW5Wh2gGzqCQ2T+3wIDAQAB
+  private-key: MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBALjDUIHeEemk4v/raEbPUsjKQR8ZsZ2bHbsenY72Qsxo6a5uP5dk6qV+jmwtnOpn5v1OQ6RkkDqBlN2jgtjSR3ok1pEKqbIaHMAT1ONq2eZW9EY4g9XGps/stEs+icTSihYAGglO3wSy9USrlPOCvDISA/pk5blaHaAbOoJDZP7fAgMBAAECgYATpUzzqiG8drheXvEVCmlyiTL4dBpzODGmmmBFecDrjEJAtl9ToTrkAvtw3D7Bm++vQnmlyr2dQvcJxB+fH2jTETf8awxrO+g1aPw2qdIlwApkx14RHDaVJWfAOoizQDfaM4xx2Ta4sTgxJTzhT73W2z2Y2CFo7jll33W1Jtg1MQJBAOO9IFRc1LcKwBYbOb0AMtfhjU/r5lHYCqLIXlKKgwMX1E8D7dGw1LVzpe+Wy3kbL+dP6ViUuEfTSuWfLDZKNy8CQQDPsOtR2YBEB6WckgS2JDgSh3W+hGkeOwCVEgQ9Pjaggua8NlRL6fPRUPeaZWc4aFtXolaG/UwZ8BqVMV1qPMdRAkEAkImmDSTltE5UXzNkT7niivUR9NlpUiRli67Tflt+juX+zy9VLrKmLYt6kzcHaJOCsbIcDSZGVv+ZF2cQblxn7QJBAIbmm3Kmm7GUZfW0wmqsS999LPV6e+yu1kn9UdOVvVW0sLo/b7F/XGbw+GLIyqrQ3cOmJh24GN4gHqQZVFvU7oECQQCOZf4RTvPI5qAJQLBqBRlVuwsh0ggrANpRZBpXhnXRLriNsHunm5yYnOcKeR61zPHQR6jEhHR9o5f4aAUr9dU4
