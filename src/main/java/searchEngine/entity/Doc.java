@@ -19,9 +19,9 @@ import org.apache.ibatis.type.Alias;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@TableName("document")
-@Alias("document")
-public class Document {
+@TableName(value = "doc")
+@Alias("doc")
+public class Doc {
 
     @JSONField(name = "doc_id")
     @TableId(value = "doc_id")
@@ -60,4 +60,11 @@ public class Document {
      */
     @TableField(exist = false)
     private Star star;
+
+    public Doc(Integer id, String title, String desc, String url) {
+        this.id = id;
+        this.title = title;
+        this.desc = desc;
+        this.url = url;
+    }
 }

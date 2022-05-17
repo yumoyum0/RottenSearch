@@ -23,6 +23,7 @@ public class AnalysisController {
 
     @GetMapping("/")
     public String analysisTest(@RequestParam("content") String content){
+
         JiebaSegmenter segmenter = new JiebaSegmenter();
         List<SegToken> tokenList = segmenter.process(content, JiebaSegmenter.SegMode.SEARCH);
         List<String> wordlist = tokenList.stream().map(e -> e.word).collect(Collectors.toList());

@@ -2,6 +2,7 @@ package searchEngine.utils;
 
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -29,7 +30,6 @@ public class AesEncryptUtils {
      * 加密
      * @param content 明文
      * @param encryptKey key值
-     * @return
      * @throws Exception
      */
     public static String encrypt(String content, String encryptKey) throws Exception {
@@ -49,7 +49,6 @@ public class AesEncryptUtils {
      * 解密
      * @param encryptStr 密文
      * @param decryptKey 解密的key值
-     * @return
      * @throws Exception
      */
     public static String decrypt(String encryptStr, String decryptKey) throws Exception {

@@ -34,4 +34,6 @@ public class UserController {
         System.out.println(user);
         return Result.success(user);
     }
+
+
 }

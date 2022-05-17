@@ -1,8 +1,15 @@
 package searchEngine.mapper;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Constants;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.ibatis.annotations.Mapper;
-import searchEngine.entity.Document;
+import org.apache.ibatis.annotations.Param;
+import searchEngine.entity.Doc;
+
+import java.util.List;
 
 /**
  * @Author: yumo
@@ -10,6 +17,8 @@ import searchEngine.entity.Document;
  * @DateTime: 2022/5/10 12:15
  **/
 @Mapper
-public interface DocMapper extends BaseMapper<Document> {
+public interface DocMapper extends BaseMapper<Doc> {
+    List<Doc> getAllDoc();
 
+    IPage<Doc> selectPageVo(IPage<Doc> page, @Param(Constants.WRAPPER) Wrapper<Doc> queryWrapper);
 }

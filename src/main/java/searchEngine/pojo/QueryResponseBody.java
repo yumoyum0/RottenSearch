@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import searchEngine.entity.Document;
+import searchEngine.entity.Doc;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ public class QueryResponseBody {
      * 搜索文档用时
      */
     @JSONField(name = "time")
-    private Double time;
+    private Long time;
 
     /**
      * 符合条件的数量
@@ -36,7 +36,7 @@ public class QueryResponseBody {
      * 总页数
      */
     @JSONField(name = "page_count")
-    private Integer pageCount;
+    private Long pageCount;
 
     /**
      * 每页数量
@@ -48,5 +48,5 @@ public class QueryResponseBody {
      * 文档列表
      */
     @JSONField(name = "docs")
-    private List<Document> documentList;
+    private List<Doc> documentList;
 }

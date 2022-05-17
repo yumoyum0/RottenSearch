@@ -1,8 +1,7 @@
 package searchEngine.mapper.cache;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import searchEngine.entity.Document;
+import searchEngine.entity.Doc;
 import searchEngine.mapper.DocMapper;
 import searchEngine.service.RedisService;
 
@@ -14,9 +13,9 @@ import javax.annotation.Resource;
  * @DateTime: 2022/5/10 21:05
  **/
 @Repository
-public class DocRepository extends AbstractRedisCacheRepository<String, Document>{
+public class DocRepository extends AbstractRedisCacheRepository<String, Doc>{
 
-    private static final Document NULL_THING = new Document();
+    private static final Doc NULL_THING = new Doc();
 
     @Resource
     private DocMapper docMapper;
@@ -27,12 +26,12 @@ public class DocRepository extends AbstractRedisCacheRepository<String, Document
 
 
     @Override
-    protected Document nullThing() {
+    protected Doc nullThing() {
         return NULL_THING;
     }
 
     @Override
-    protected Document getIfAbsent(String key) {
+    protected Doc getIfAbsent(String key) {
         return docMapper.selectById(key);
     }
 }

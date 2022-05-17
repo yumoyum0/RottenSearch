@@ -1,6 +1,7 @@
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.SegToken;
 import org.junit.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,6 +11,7 @@ import java.util.stream.Collectors;
  * @Description: TODO
  * @DateTime: 2022/5/9 16:34
  **/
+
 public class AnalysisTest {
 
 

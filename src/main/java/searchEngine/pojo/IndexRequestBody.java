@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import searchEngine.entity.Document;
+import searchEngine.entity.Doc;
 
 /**
  * @Author: yumo
@@ -30,5 +30,5 @@ public class IndexRequestBody {
     /**
      * 附带的文档数据，json格式，搜索的时候原样返回
      */
-    private Document document;
+    private Doc document;
 }

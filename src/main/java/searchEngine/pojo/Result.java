@@ -7,16 +7,18 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 import searchEngine.enums.ErrorEnum;
 
+import java.io.Serializable;
+
 /**
  * @Author: yumo
- * @Description: 最终返回给页面的结果
+ * @Description: 前端统一返回类型
  * @DateTime: 2022/5/9 18:04
  **/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Result<T> {
+public class Result<T> implements Serializable {
     /**
      * 成功与否
      */

@@ -34,15 +34,4 @@ public class QueryRequestBody {
     @JSONField(name = "limit")
     private Integer limit;
 
-    /**
-     * 排序方式，取值asc和desc，默认为desc，按id排序，然后根据结果得分排序
-     */
-    @JSONField(name = "order")
-    private String order;
-
-    /**
-     * 关键字高亮，相对text字段中的文本
-     */
-    private HighLight highLight;
-
 }

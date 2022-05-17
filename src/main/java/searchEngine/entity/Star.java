@@ -52,5 +52,5 @@ public class Star {
      * 不映射表中的任何字段
      */
     @TableField(exist = false)
-    private List<Document> documentList;
+    private List<Doc> documentList;
 }
