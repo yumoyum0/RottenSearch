@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>查询结果</title>
+</head>
+<body>
+    <!--头部 1 未登录状态-->
+    <header>
+        <!--左边为搜索框，右边为登录注册-->
+        <div class="search">
+            <form th:action="@{/search/queryDoc}" method="post">
+                query:<input type="text" name="query"/><br/>
+                <input type="hidden" name="page" value="1"/><br/>
+                <input type="hidden" name="limit" value="100"/>
+                <button type="submit" value="查询"/>
+            </form>
+        </div>
+        <div class="login/register">
+            <a href="">登录/</a>
+            <a href="">注册</a>
+        </div>
+    </header>
+    <!--头部 2 已登录状态-->
+    <header  style="display: none">
+        <!--左边为搜索框，右边为用户-->
+        <div class="search">
+            <form th:action="@{/search/queryDoc}" method="post">
+                query:<input type="text" name="query"/><br/>
+                <input type="hidden" name="page" value="1"/><br/>
+                <input type="hidden" name="limit" value="100"/>
+                <button type="submit" value="查询"/>
+            </form>
+        </div>
+        <div class="user">
+            <span></span>
+        </div>
+    </header>
+    <!--主体，显示查询结果-->
+    <main>
+        <div class="search-result" th:each="doc,it:${queryResponseBody.documentList}">
+            <div class="each-doc">
+                <div class="title" th:text="${doc.title}"></div>
+                <div class="desc">
+                    <a th:href="${doc.url}" target="_blank" ><span th:utext="${doc.desc}"></span></a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

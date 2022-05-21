@@ -185,6 +185,12 @@
             </properties>
         </profile>
         <profile>
+            <id>xun</id>
+            <properties>
+                <build.profile.id>xun</build.profile.id>
+            </properties>
+        </profile>
+        <profile>
             <id>prod</id>
             <properties>
                 <build.profile.id>prod</build.profile.id>

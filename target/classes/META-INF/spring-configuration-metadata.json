@@ -1,0 +1,16 @@
+{
+  "groups": [
+    {
+      "name": "index",
+      "type": "searchEngine.config.properties.IndexProperties",
+      "sourceType": "searchEngine.config.properties.IndexProperties"
+    },
+    {
+      "name": "rsa",
+      "type": "searchEngine.config.properties.RSAProperties",
+      "sourceType": "searchEngine.config.properties.RSAProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

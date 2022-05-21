@@ -193,14 +193,12 @@ public class IndexServiceImpl implements IndexService {
 
             docList.add(doc);
         }
-
-
         return docList;
     }
 
     /**
      * 相关搜索
-     * @Author:
+     * @Author: xun
      * @param words 查询的关键词
      * @return 相关字段
      */
@@ -240,9 +238,9 @@ public class IndexServiceImpl implements IndexService {
 
     /**
      * 为相关搜索提供的搜索函数
-     * @Author:
-     * @param words
-     * @param numHits
+     * @Author: xun
+     * @param words 关键词
+     * @param numHits 预期命中数
      * @return 相关数据的desc`
      * @throws Exception
      */
@@ -280,9 +278,9 @@ public class IndexServiceImpl implements IndexService {
 
     /**
      * 检查是否有中英文标点符号
-     * @Author:
-     * @param s
-     * @return
+     * @Author: xun
+     * @param s 提供检查的字符串
+     * @return boolean
      */
     public boolean check(String s) {
         boolean b = false;

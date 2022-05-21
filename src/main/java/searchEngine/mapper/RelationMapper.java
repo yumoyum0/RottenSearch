@@ -10,7 +10,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface RelationMapper {
 
-
     int addStarsToUser(@Param("sid") Integer sid, @Param("uid") Integer uid);
 
     int deleteStarsFromUser(@Param("sid") Integer sid,@Param("uid") Integer uid);
