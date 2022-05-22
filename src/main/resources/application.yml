@@ -12,10 +12,8 @@ spring:
 
 
   profiles:
-    active: '@{build.profile.id}@'
+    active: @build.profile.id@
 # 应用服务 WEB 访问端口
-server:
-  port: 8080
 
 mybatis-plus:
   mapper-locations: classpath:/mapper/*.xml
@@ -27,3 +25,6 @@ rsa:
 index:
   path: E:\\index_library
   numHits: 100
+
+server:
+  port: 8080

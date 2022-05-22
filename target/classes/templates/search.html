@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+</head>
+<body>
+<form th:action="@{/search/queryDoc}" method="get">
+    query:<input type="text" name="query" th:value="${session.query}"/><br/>
+    <input type="hidden" name="page" value="1"/><br/>
+    <input type="hidden" name="limit" value="100"/>
+    <input type="button" value="搜索">
+</form>
+</body>
+</html>

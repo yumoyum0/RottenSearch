@@ -26,6 +26,6 @@ public interface IndexService {
      */
     List<Doc> search(String query, Integer numHits, String... fields) throws Exception;
 
-    public List<String> relatesearch (String Words,Integer numHits) throws Exception;
-    public boolean check(String s);
+    List<String> relatesearch (String Words,Integer numHits) throws Exception;
+    boolean check(String s);
 }

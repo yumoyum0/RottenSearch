@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="searchEngine.mapper.RelationMapper">
+
+    <!--void addStarsToUser(@Param("sid") Integer sid,@Param("uid") Integer uid);-->
+    <insert id="addStarsToUser">
+        insert into user_stars values (null,#{sid},#{uid})
+    </insert>
+
+    <!--int deleteStarsFromUser(@Param("sid") Integer sid,@Param("uid") Integer uid);-->
+    <delete id="deleteStarsFromUser">
+        delete from user_stars where sid = #{sid} and uid = #{uid}
+    </delete>
+</mapper>
