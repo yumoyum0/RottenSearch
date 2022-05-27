@@ -11,6 +11,7 @@ import org.apache.lucene.document.*;
 import org.apache.lucene.index.*;
 import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
 import org.apache.lucene.queryparser.classic.ParseException;
+import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.*;
 import org.apache.lucene.search.highlight.*;
 import org.apache.lucene.search.highlight.Formatter;
@@ -21,6 +22,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import searchEngine.entity.Doc;
 import searchEngine.mapper.DocMapper;
+import searchEngine.pojo.SearchPair;
 import searchEngine.service.DocService;
 import searchEngine.service.IndexService;
 import searchEngine.utils.JieBaUtils.JieBaAnalyzer;
@@ -123,13 +125,17 @@ public class IndexServiceImpl implements IndexService {
      * 从索引库中针对给定的域数组查询关键词
      * @Author: yumo
      * @param query 查询关键词
+     * @param page 当前页码
+     * @param limit 每页条目总数
      * @param numHits 预期命中数
      * @param fields 查询域数组
      * @return 从索引库中获取的Doc集合
      * @throws Exception
      */
-    public  List<Doc> search(String query,Integer numHits,String... fields) throws Exception {
+    public  SearchPair<Doc> search(String query,Integer page,Integer limit,Integer numHits,String... fields) throws Exception {
         log.info("查询的关键词："+query);
+        log.info("当前页码："+page);
+        log.info("每页条目总数："+limit);
         log.info("预期命中数："+numHits);
         log.info("查询域："+ Arrays.stream(fields).toList());
         // 创建分词器
@@ -156,17 +162,11 @@ public class IndexServiceImpl implements IndexService {
         // 搜索并返回结果,第二个参数表示返回多少条数据，分页使用
         TopDocs topDocs = indexSearcher.search(q, numHits);
         log.info("根据关键词 "+ query +" 查询到的数据总条数："+topDocs.totalHits);
-//        List<Document> documentList = Arrays.stream(topDocs.scoreDocs).map(e -> e.doc).map(ee -> {
-//            try {
-//                return indexSearcher.doc(ee);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }).toList();
         ScoreDoc[] scoreDocs = topDocs.scoreDocs;
         List<Doc> docList=new ArrayList<>();
-        for (ScoreDoc scoreDoc : scoreDocs) {
-            int docId = scoreDoc.doc;
+        // 分页查询
+        for (int i = (page - 1) * limit; i < page * limit; i++) {
+            int docId = scoreDocs[i].doc;
 
             Document document = indexSearcher.doc(docId);
             Integer id = Integer.parseInt(document.get("id"));
@@ -193,7 +193,7 @@ public class IndexServiceImpl implements IndexService {
 
             docList.add(doc);
         }
-        return docList;
+        return new SearchPair<Doc>(docList,topDocs.totalHits.value);
     }
 
     /**
