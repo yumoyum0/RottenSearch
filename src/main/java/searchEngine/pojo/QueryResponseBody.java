@@ -27,10 +27,10 @@ public class QueryResponseBody {
     private Long time;
 
     /**
-     * 符合条件的数量
+     * 当前页码
      */
-    @JSONField(name = "total")
-    private Integer total;
+    @JSONField(name = "page")
+    private Integer page;
 
     /**
      * 总页数
@@ -49,4 +49,5 @@ public class QueryResponseBody {
      */
     @JSONField(name = "docs")
     private List<Doc> documentList;
+
 }
