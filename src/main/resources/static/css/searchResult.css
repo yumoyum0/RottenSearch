@@ -1,0 +1,89 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+/* 浏览器都有自己的默认样式，以上部分为清除浏览器默认样式 */
+body{
+    padding: 10px 16px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid darkgray;
+}
+a{
+    text-decoration: none;
+}
+header .search form{
+    display: flex;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Algerian;
+    height: 50px;
+}
+header .search a{
+    cursor: pointer;
+    margin-top: 5px;
+    color: #000;
+}
+header .search form .search-input{
+    height: 40px;
+    width: 500px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+header .search form button{
+    height: 46px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    background: #4e6ef2;
+    color: white;
+    margin-top: 2px;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* 主体 */
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+main .search-result{
+    margin-right: 10px;
+}
+
+main .search-result .each-doc img {
+    border-radius: 5px;
+    height: 200px;
+    width: 100%;
+    margin-bottom: -5px;
+}
+
