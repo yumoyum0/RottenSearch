@@ -16,14 +16,14 @@ import searchEngine.interceptpr.MyInterceptor;
 @ConditionalOnMissingBean(MyInterceptor.class)
 public class WebConfig implements WebMvcConfigurer {
 
-    @Autowired
-    private MyInterceptor myInterceptor;
+    /*@Autowired
+    private MyInterceptor myInterceptor;*/
 
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(myInterceptor)
+        registry.addInterceptor(new MyInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/","/css/**","/fonts/**","/images/**","/js/**");
+                .excludePathPatterns("/","/static/css/**","/fonts/**","/images/**","/js/**");
     }
 }

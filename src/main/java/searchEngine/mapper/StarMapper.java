@@ -19,6 +19,11 @@ public interface StarMapper extends BaseMapper<Star> {
      * @param did 网页id
      */
     void addS (@Param("sid") Integer sid, @Param("did") Integer did);
+    /**
+     * 向用户添加收藏夹
+     * @param sid 收藏夹id
+     * @param uid 用户id
+     */
     void addU (@Param("sid") Integer sid, @Param("uid") Integer uid);
 
     /**

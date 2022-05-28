@@ -1,0 +1,65 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+/* 浏览器都有自己的默认样式，以上部分为清除浏览器默认样式 */
+body{
+    display: flex;
+    justify-content: center;
+    padding-top: 170px;
+}
+
+.search .logo{
+    margin-left: 370px;
+    height: 150px;
+    width: 200px;
+}
+
+.search form{
+    display: flex;
+    font-size: 40px;
+    font-weight: bold;
+    height: 50px;
+    margin-top: -40px;
+    font-family: Algerian;
+}
+.search form .search-input{
+    height: 40px;
+    width: 500px;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+.search form button{
+    height: 46px;
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    background: #4e6ef2;
+    color: white;
+    margin-top: 2px;
+    font-size: 17px;
+    font-weight: 500;
+    font-family: Algerian;
+}
