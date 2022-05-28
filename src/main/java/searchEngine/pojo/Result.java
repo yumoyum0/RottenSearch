@@ -18,7 +18,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Result<T> implements Serializable {
+public class Result implements Serializable {
     /**
      * 成功与否
      */
@@ -41,9 +41,9 @@ public class Result<T> implements Serializable {
      * 数据对象
      */
     @JSONField(name = "data")
-    private T data;
+    private Object data;
 
-    public static <T> Result success(T data){
+    public static Result success(Object data){
         return new Result(true,200,null,data);
     }
 
