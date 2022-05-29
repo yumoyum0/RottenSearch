@@ -1,4 +1,6 @@
 spring:
+  mvc:
+    static-path-pattern: classpath:/static/**
 
   datasource:
     # 数据库驱动
@@ -12,7 +14,11 @@ spring:
 
 
   profiles:
-    active: xun
+    active: windpo
+  web:
+    resources:
+      static-locations:
+
 # 应用服务 WEB 访问端口
 
 mybatis-plus:

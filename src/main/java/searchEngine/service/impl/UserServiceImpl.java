@@ -1,6 +1,7 @@
 package searchEngine.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import searchEngine.entity.User;
 import searchEngine.mapper.UserMapper;
@@ -17,56 +18,40 @@ import javax.annotation.Resource;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     @Resource
-    private UserMapper userMapper;
+    private  UserMapper userMapper;
+
     @Override
-    public Result<String> login(User user) {
-        //初始化返回状态
-        Result<String> result = new Result<String>();
-        result.setSuccess(false);
-        result.setData(null);
-        result.setCode(100);
-        result.setErrMsg(null);
+    public Result login(User user) {
+        Result result = new Result();
         try {
             final User userDB = userMapper.login(user.getUsername(), user.getPassword());
-            if(userDB.getId()==null){
-                result.setErrMsg("用户名或密码错误");
-                result.setCode(401);
+            if(userDB==null){
+                result=Result.failure("用户名或密码错误");
             }else {
-                result.setSuccess(true);
-                result.setData("token");
-                result.setCode(200);
+                result=Result.success("token");
             }
         }catch (Exception e){
-            result.setErrMsg(e.getMessage());
-            result.setCode(400);
+            result=Result.failure(e.getMessage());
             e.printStackTrace();
         }
         return result;
     }
 
     @Override
-    public Result<String> regist(User user) {
-        final Result<String> result = new Result<>();
-        //初始化返回状态
-        result.setSuccess(false);
-        result.setErrMsg(null);
-        result.setCode(100);
-        result.setData(null);
+    public Result regist(User user) {
+        Result result = new Result();
         try {
             //判断数据库中是否存在用户
             final User existUser = userMapper.queryUserByusername(user.getUsername());
             if (existUser!=null){
-                result.setErrMsg("用户已存在");
-                result.setCode(401);
+                result=Result.failure("用户已存在");
             }else {
                 //注册用户
                 userMapper.regist(user);
-                result.setSuccess(true);
-                result.setCode(200);
+                result=Result.success(null);
             }
         }catch (Exception e){
-            result.setErrMsg(e.getMessage());
-            result.setCode(400);
+            result=Result.failure(e.getMessage());
             e.printStackTrace();
         }
         return result;

@@ -1,5 +1,6 @@
 package searchEngine.controller.search;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,6 @@ public class UserController {
      * @param user 参数封装
      * @return Result
      */
-    @SecurityParameter(inDecode = false,outEncode = true)
     @GetMapping(value = "/login")
     public Result login(User user){
         return userService.login(user);
@@ -38,7 +38,6 @@ public class UserController {
      * @param user 参数封装
      * @return Result
      */
-    @SecurityParameter(inDecode = true,outEncode = false)
     @PostMapping(value = "/regist")
     public Result regist(User user){
         return userService.regist(user);
