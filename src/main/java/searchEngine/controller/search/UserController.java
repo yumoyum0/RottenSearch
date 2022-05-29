@@ -12,7 +12,7 @@ import searchEngine.service.UserService;
 import javax.annotation.Resource;
 
 /**
- * @Author: yumo
+ * @Author: WindPo
  * @Description: TODO
  * @DateTime: 2022/5/10 19:00
  **/
@@ -22,18 +22,25 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    /**
+     * 登录
+     * @param user 参数封装
+     * @return Result
+     */
     @SecurityParameter(inDecode = false,outEncode = true)
-    @GetMapping("list")
-    public Result userList(){
-        return Result.success(userService.list());
+    @GetMapping(value = "/login")
+    public Result login(User user){
+        return userService.login(user);
     }
 
+    /**
+     * 注册
+     * @param user 参数封装
+     * @return Result
+     */
     @SecurityParameter(inDecode = true,outEncode = false)
-    @PostMapping("/add")
-    public Result addUser(User user){
-        System.out.println(user);
-        return Result.success(user);
+    @PostMapping(value = "/regist")
+    public Result regist(User user){
+        return userService.regist(user);
     }
-
-
 }
