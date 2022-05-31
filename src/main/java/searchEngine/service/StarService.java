@@ -5,6 +5,8 @@ import searchEngine.entity.Doc;
 import searchEngine.entity.Star;
 import searchEngine.pojo.Result;
 
+import java.util.List;
+
 /**
  * @Author: xun
  * @Description: 收藏夹的增删改查
@@ -56,4 +58,20 @@ public interface StarService extends IService<Star> {
      * @param uid 用户id
      */
     void addU (Integer sid, Integer uid);
+
+    /**
+     * 修改收藏夹名字
+     * @param starName 收藏夹原名
+     * @param newStarName 修改后的收藏夹名
+     * @return 修改结果
+     * */
+    Boolean modifyStar(String starName,String newStarName);
+
+    /**
+     * 根据用户id查询所有收藏夹
+     * @param userId 用户id
+     * @return 当前用户的所有收藏夹
+     * */
+    List<Star> getStars(Integer userId);
+
 }

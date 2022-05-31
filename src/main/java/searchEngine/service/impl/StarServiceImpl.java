@@ -14,6 +14,7 @@ import searchEngine.pojo.Result;
 import searchEngine.service.StarService;
 
 import java.sql.Wrapper;
+import java.util.List;
 
 /**
  * @Author: xun
@@ -93,5 +94,25 @@ public class StarServiceImpl extends ServiceImpl<StarMapper,Star> implements Sta
     @Override
     public void addU(Integer sid, Integer uid) {
 
+    }
+
+    @Override
+    public Boolean modifyStar(String starName, String newStarName) {
+        // 参数非空判断
+        if (starName == null || newStarName == null){
+            throw  new LocalRunTimeException("请检查修改名是否为空");
+        }
+        // 获取收藏夹名
+        Integer sid = starMapper.queryIdByname(starName);
+        // 修改收藏夹名
+        starMapper.modifyStar(sid,newStarName);
+        return true;
+    }
+
+    @Override
+    public List<Star> getStars(Integer userId) {
+        List<Integer> sids = starMapper.queryStarIdsByUserId(userId);
+        List<Star> stars = starMapper.queryStarsByIds(sids);
+        return stars;
     }
 }

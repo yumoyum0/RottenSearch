@@ -53,7 +53,29 @@
         insert into star(star_name)
         VALUES (#{starname})
     </insert>
+    <update id="modifyStar">
+        UPDATE star
+        SET star_name=#{newStarName}
+        WHERE star_id = #{sid}
+    </update>
 
+    <!--List<Integer> queryStarIdsByUserId(@Param("uid") Integer uid);-->
+    <select id="queryStarIdsByUserId" resultType="integer">
+        SELECT sid
+        FROM user_stars
+        WHERE uid = #{uid}
+    </select>
+
+    <!--List<Star> queryStarsById(@Param("sids")List<Integer> sids);-->
+    <select id="queryStarsByIds" resultType="searchEngine.entity.Star">
+        select * from star
+        <where>
+            <foreach item="sid" index="index"
+                     collection="sids" open="star_id in (" separator="," close=")" nullable="true">
+                  #{sid}
+            </foreach>
+        </where>
+    </select>
     <!--    <select id="search" resultType="searchEngine.entity.Doc">
             select * from star_doc where
         </select>-->

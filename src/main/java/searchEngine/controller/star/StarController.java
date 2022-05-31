@@ -3,11 +3,12 @@ package searchEngine.controller.star;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import searchEngine.entity.Star;
 import searchEngine.pojo.Result;
 import searchEngine.service.StarService;
+
+import java.util.List;
 
 /**
  * @Author xun
@@ -16,7 +17,6 @@ import searchEngine.service.StarService;
 @Slf4j
 @Controller
 @RequestMapping(value = "/star")
-@ResponseBody
 public class StarController {
     private final StarService starService;
 
@@ -30,7 +30,9 @@ public class StarController {
      * @return 返回操作信息
      */
     @PostMapping ("/createstars")
-    String createStars(String starname) {
+    String createStars(Integer userId,String starname) {
+        // mock userId
+        userId = 1;
         return starService.createStars(starname);
     }
 
@@ -59,4 +61,30 @@ public class StarController {
     String deleteDoc (String starname, String desc) {
         return starService.deleteDoc(starname, desc);
     }
+
+    /**
+     * 修改收藏夹名
+     * @param starName 收藏夹原名
+     * @param newStarName 改后的收藏夹名
+     * @return 修改结果
+     * */
+    @PutMapping("/modifyStar")
+    public Boolean modifyStar (String starName, String newStarName){
+        return starService.modifyStar(starName,newStarName);
+    }
+
+    /**
+     * 收藏夹页面
+     * @param userId 用户id
+     * @return 收藏夹页面
+     * */
+    @GetMapping("/getStars")
+    public String getStars (Integer userId,Model model){
+        List<Star> starList = starService.getStars(userId);
+        model.addAttribute("starList",starList);
+        return "star";
+    }
+
+
+
 }
