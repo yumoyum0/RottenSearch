@@ -13,6 +13,7 @@ import searchEngine.entity.Doc;
 import searchEngine.pojo.QueryRequestBody;
 import searchEngine.pojo.QueryResponseBody;
 import searchEngine.pojo.Result;
+import searchEngine.pojo.SearchPair;
 import searchEngine.service.DocService;
 import searchEngine.service.IndexService;
 import searchEngine.service.StarService;
@@ -62,11 +63,7 @@ public class SearchController {
         return "search";
     }
 
-//    @GetMapping("/queryDoc")
-//    public void testQuery(@RequestParam("query") String query,Model model,HttpServletRequest request){
-//        queryDoc(new QueryRequestBody(query,1,100),model,request);
-//    }
-//    th:action="@{/search/queryDoc}
+
 
     /**
      *
@@ -83,20 +80,7 @@ public class SearchController {
                            @RequestParam(value = "limit",required = false,defaultValue = "10") Integer limit,
                            Model model,HttpServletRequest request){
         try {
-            HttpSession session = request.getSession();
-            StringBuffer requestURLStringBuffer = request.getRequestURL();
-            int lastIndexOf = requestURLStringBuffer.lastIndexOf("query=");
-            if (lastIndexOf>0){
-                String requestURL = requestURLStringBuffer.substring(0, lastIndexOf-1);
 
-            }
-            /**
-             * 获取传入的请求参数值
-             */
-//            String query = queryRequestBody.getQuery();
-//            Integer page = queryRequestBody.getPage();
-//            Integer limit = queryRequestBody.getLimit();
-//            session.setAttribute("query",query);
             /**
              * 创建索引库
              */
@@ -106,19 +90,22 @@ public class SearchController {
              * 从索引库搜索并计时
              */
             long start = System.currentTimeMillis();
-            List<Doc> docList = indexService.search(query, numHits, "desc");
+
+            SearchPair<Doc> searchPair = indexService.search(query, page, limit, numHits, "desc");
+            List<Doc> docList = searchPair.getList();
+            long totalNum = searchPair.getNum();
             List<String> relateQueryList = indexService.relatesearch(query,numHits);
 
-
-
-            IPage<Doc> docIPage = docService.selectPageVo(new Page<>(page, limit), new QueryWrapper<Doc>());
             long end = System.currentTimeMillis();
             long time=end-start;
             log.info("查询耗时："+time+" ms");
+
+
             /**
              * 封装响应数据
              */
-            QueryResponseBody queryResponseBody = new QueryResponseBody(time, page, docIPage.getTotal(), limit, docList);
+            long pageCount = (totalNum+limit-1)/limit;
+            QueryResponseBody queryResponseBody = new QueryResponseBody(time, page,pageCount, limit, docList);
             Result queryDocSuccess = Result.success(queryResponseBody);
 
 

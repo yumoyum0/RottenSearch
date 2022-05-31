@@ -15,6 +15,10 @@ spring:
 
   profiles:
     active: @build.profile.id@
+  web:
+    resources:
+      static-locations:
+
 # 应用服务 WEB 访问端口
 
 mybatis-plus:
