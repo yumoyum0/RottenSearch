@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Param;
 import searchEngine.entity.Doc;
 import searchEngine.entity.Star;
 
+import java.util.List;
+
 /**
  * @Author: xun
  * @Description: TODO
@@ -77,4 +79,24 @@ public interface StarMapper extends BaseMapper<Star> {
      */
     void createStars(@Param("starname") String starname);
 
+    /**
+     * 修改收藏夹名
+     * @param sid 收藏夹id
+     * @param newStarName 修改后的收藏夹名
+     * */
+    void modifyStar(@Param("sid") Integer sid ,@Param("newStarName") String newStarName);
+
+    /**
+     * 根据用户id查询所有收藏夹id
+     * @param uid 用户id
+     * @return 当前用户所有收藏夹id
+     * */
+    List<Integer> queryStarIdsByUserId(@Param("uid") Integer uid);
+
+    /**
+     * 根据收藏夹id查询收藏夹
+     * @param sids 收藏夹id
+     * @return 查询到的收藏夹
+     * */
+    List<Star> queryStarsByIds(@Param("sids")List<Integer> sids);
 }
