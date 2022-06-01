@@ -1,6 +1,6 @@
 spring:
   mvc:
-    static-path-pattern: /static/**
+    static-path-pattern: classpath:/static/**
 
   datasource:
     # 数据库驱动

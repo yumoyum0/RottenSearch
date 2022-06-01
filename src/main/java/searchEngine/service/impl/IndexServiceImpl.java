@@ -165,7 +165,7 @@ public class IndexServiceImpl implements IndexService {
         ScoreDoc[] scoreDocs = topDocs.scoreDocs;
         List<Doc> docList=new ArrayList<>();
         // 分页查询
-        for (int i = (page - 1) * limit; i < page * limit; i++) {
+        for (int i = (page - 1) * limit; i < page * limit && i<scoreDocs.length; i++) {
             int docId = scoreDocs[i].doc;
 
             Document document = indexSearcher.doc(docId);
