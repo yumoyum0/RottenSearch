@@ -108,10 +108,12 @@ public class SearchController {
             QueryResponseBody queryResponseBody = new QueryResponseBody(time, page,pageCount, limit, docList);
             Result queryDocSuccess = Result.success(queryResponseBody);
 
-
             docList.forEach(System.out::println);
             System.out.println("=================================================================");
             relateQueryList.forEach(System.out::println);
+
+            model.addAttribute("query",query);
+            model.addAttribute("relateQueryList",relateQueryList);
             model.addAttribute("queryDocSuccess",queryDocSuccess);
             model.addAttribute("queryResponseBody",queryResponseBody);
             return "searchResult";
