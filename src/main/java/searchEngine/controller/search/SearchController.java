@@ -96,6 +96,7 @@ public class SearchController {
             long totalNum = searchPair.getNum();
             List<String> relateQueryList = indexService.relatesearch(query,numHits);
 
+
             long end = System.currentTimeMillis();
             long time=end-start;
             log.info("查询耗时："+time+" ms");

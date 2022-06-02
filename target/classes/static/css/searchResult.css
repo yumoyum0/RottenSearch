@@ -41,11 +41,22 @@ header .line-one{
 }
 
 header .line-two{
+    font-size: 12px;
+    width: 100%;
     display: flex;
+    overflow: hidden;
 }
 
 header .line-two li{
     margin-right: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+header .line-two a{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 a{

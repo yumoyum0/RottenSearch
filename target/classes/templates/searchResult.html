@@ -26,8 +26,8 @@
             <a href="">注册</a>
         </div>
     </div>
-    <div class="line-two" th:with="liSize=5">
-        <span>相关搜索：</span>
+    <div class="line-two" >
+        <li>相关搜索：</li>
         <li th:each="item:${relateQueryList}"><a th:href="@{/search/queryDoc(query=${item})}" th:text="${item}"></a></li>
     </div>
 </header>
