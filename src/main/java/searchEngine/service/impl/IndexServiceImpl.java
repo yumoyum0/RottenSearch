@@ -125,7 +125,6 @@ public class IndexServiceImpl implements IndexService {
      * 从索引库中针对给定的域数组查询关键词
      * @Author: yumo
      * @param query 查询关键词
-     * @param filterWords 过滤关键词数组
      * @param page 当前页码
      * @param limit 每页条目总数
      * @param numHits 预期命中数
@@ -133,9 +132,8 @@ public class IndexServiceImpl implements IndexService {
      * @return 从索引库中获取的Doc集合
      * @throws Exception
      */
-    public  SearchPair<Doc> search(String query,String[] filterWords,Integer page,Integer limit,Integer numHits,String... fields) throws Exception {
+    public  SearchPair<Doc> search(String query,Integer page,Integer limit,Integer numHits,String... fields) throws Exception {
         log.info("查询的关键词："+query);
-        log.info("过滤的关键词："+ Arrays.toString(filterWords));
         log.info("当前页码："+page);
         log.info("每页条目总数："+limit);
         log.info("预期命中数："+numHits);
@@ -166,11 +164,8 @@ public class IndexServiceImpl implements IndexService {
         log.info("根据关键词 "+ query +" 查询到的数据总条数："+topDocs.totalHits);
         ScoreDoc[] scoreDocs = topDocs.scoreDocs;
         List<Doc> docList=new ArrayList<>();
-
-        // 分页查询及关键词过滤
-        int cnt=0;
-        int n=page * limit;
-        outLoop : for (int i = (page - 1) * limit; i < n && i<scoreDocs.length; i++) {
+        // 分页查询
+        for (int i = (page - 1) * limit; i < page * limit && i<scoreDocs.length; i++) {
             int docId = scoreDocs[i].doc;
 
             Document document = indexSearcher.doc(docId);
@@ -178,16 +173,7 @@ public class IndexServiceImpl implements IndexService {
             String title = document.get("title");
             String desc = document.get("desc");
             String url = document.get("url");
-            /**
-             * 关键词过滤
-             */
-            for (String filter:filterWords){
-                if (desc.contains(filter)||title.contains(filter)){
-                    cnt++;
-                    n++;
-                    continue outLoop;
-                }
-            }
+
 
             //首先获取docId的TokenStream
             TokenStream tokenStream= TokenSources.getAnyTokenStream(indexReader, docId, fields[0], analyzer);
@@ -207,7 +193,6 @@ public class IndexServiceImpl implements IndexService {
 
             docList.add(doc);
         }
-        log.info("根据关键词 "+ Arrays.toString(filterWords) +" 过滤的数据总条数："+cnt);
         return new SearchPair<Doc>(docList,topDocs.totalHits.value);
     }
 

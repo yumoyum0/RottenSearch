@@ -25,7 +25,7 @@ public interface IndexService {
      * @return 所有命中的文档的前numHits个
      * @throws Exception
      */
-    SearchPair<Doc> search(String query, String[] filterWords,Integer page, Integer limit, Integer numHits, String... fields) throws Exception;
+    SearchPair<Doc> search(String query, Integer page, Integer limit, Integer numHits, String... fields) throws Exception;
 
     List<String> relatesearch (String Words,Integer numHits) throws Exception;
     boolean check(String s);
