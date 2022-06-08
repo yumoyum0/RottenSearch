@@ -13,4 +13,6 @@
     <delete id="deleteStarsFromUser">
         delete from user_stars where sid = #{sid} and uid = #{uid}
     </delete>
+
+
 </mapper>

@@ -23,7 +23,10 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.http.HttpRequest;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 /**
  * @author yumo
@@ -87,14 +90,29 @@ public class SearchController {
             indexService.create();
 
             /**
+             * 提取搜索关键词和过滤关键词
+             */
+            String filter="--filter";
+            String queryWord=query;
+            if (query.contains("--filter")){
+                filter=query.substring(query.lastIndexOf("--filter")+"--filter".length()).trim();
+                queryWord=query.substring(0, query.lastIndexOf("--filter")).trim();
+            }else if (query.contains("-f")) {
+                filter = query.substring(query.lastIndexOf("-f") + "-f".length()).trim();
+                queryWord = query.substring(0, query.lastIndexOf("-f")).trim();
+            }
+            String[] filterWords = filter.split("[,|，]");
+
+            /**
              * 从索引库搜索并计时
              */
             long start = System.currentTimeMillis();
 
-            SearchPair<Doc> searchPair = indexService.search(query, page, limit, numHits, "desc");
+            SearchPair<Doc> searchPair = indexService.search(queryWord, filterWords,page, limit, numHits, "desc");
             List<Doc> docList = searchPair.getList();
             long totalNum = searchPair.getNum();
-            List<String> relateQueryList = indexService.relatesearch(query,numHits);
+            List<String> relateQueryList = indexService.relatesearch(queryWord,numHits);
+
 
             long end = System.currentTimeMillis();
             long time=end-start;
@@ -108,10 +126,12 @@ public class SearchController {
             QueryResponseBody queryResponseBody = new QueryResponseBody(time, page,pageCount, limit, docList);
             Result queryDocSuccess = Result.success(queryResponseBody);
 
-
             docList.forEach(System.out::println);
             System.out.println("=================================================================");
             relateQueryList.forEach(System.out::println);
+
+            model.addAttribute("query",query);
+            model.addAttribute("relateQueryList",relateQueryList);
             model.addAttribute("queryDocSuccess",queryDocSuccess);
             model.addAttribute("queryResponseBody",queryResponseBody);
             return "searchResult";

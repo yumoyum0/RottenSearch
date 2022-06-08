@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
     margin: 0;
+    padding-bottom: 100px;
 }
 
 ul,
@@ -23,17 +24,41 @@ p {
     padding: 0;
 }
 /* 浏览器都有自己的默认样式，以上部分为清除浏览器默认样式 */
-body{
-    padding: 10px 16px;
-}
+
 header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 20px;
+
+
+
+    padding: 10px 20px 10px 20px;
     margin-bottom: 10px;
     border-bottom: 1px solid darkgray;
 }
+
+header .line-one{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .line-two{
+    font-size: 12px;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+header .line-two li{
+    margin-right: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+header .line-two a{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 a{
     text-decoration: none;
 }
@@ -69,11 +94,14 @@ header .search form button{
     font-weight: 500;
 }
 
+
 /* 主体 */
 main{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 main .search-result{
@@ -87,3 +115,47 @@ main .search-result .each-doc img {
     margin-bottom: -5px;
 }
 
+.page{
+    height: 100px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: #f5f5f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid darkgray;
+}
+
+.page .page-list{
+    height: 30px;
+    display: flex;
+}
+
+.page .page-list li{
+    line-height: 36px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #3951b3;
+    margin-right: 12px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+
+.page .page-list .active{
+    background: #4e6ef2;
+    color: #ffffff;
+    font-weight: normal;
+}
+
+.page .page-list .prev,.page .page-list .next{
+    width: 60px;
+}
