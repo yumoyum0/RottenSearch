@@ -28,6 +28,7 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements DocSe
         return docMapper.getAllDoc();
     }
 
+    @Override
     public IPage<Doc> selectPageVo(IPage<Doc> page, Wrapper<Doc> queryWrapper){
         return docMapper.selectPageVo(page,queryWrapper);
     }

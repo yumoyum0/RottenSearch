@@ -1,5 +1,6 @@
 package searchEngine.controller.search;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ import searchEngine.service.UserService;
 import javax.annotation.Resource;
 
 /**
- * @Author: yumo
+ * @Author: WindPo
  * @Description: TODO
  * @DateTime: 2022/5/10 19:00
  **/
@@ -22,18 +23,23 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    @SecurityParameter(inDecode = false,outEncode = true)
-    @GetMapping("list")
-    public Result userList(){
-        return Result.success(userService.list());
+    /**
+     * 登录
+     * @param user 参数封装
+     * @return Result
+     */
+    @GetMapping(value = "/login")
+    public Result login(User user){
+        return userService.login(user);
     }
 
-    @SecurityParameter(inDecode = true,outEncode = false)
-    @PostMapping("/add")
-    public Result addUser(User user){
-        System.out.println(user);
-        return Result.success(user);
+    /**
+     * 注册
+     * @param user 参数封装
+     * @return Result
+     */
+    @PostMapping(value = "/regist")
+    public Result regist(User user){
+        return userService.regist(user);
     }
-
-
 }

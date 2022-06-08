@@ -46,9 +46,10 @@ public class JsonResponseBodyAdvice implements ResponseBodyAdvice {
      */
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
-        Result result=Result.success(body);
+        Result result=new Result();
         if (body instanceof String) {
             response.getHeaders().set(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
+            result=Result.success(body);
         }
         if (body instanceof Result) {
             result = (Result) body;
