@@ -53,6 +53,8 @@ public class JsonResponseBodyAdvice implements ResponseBodyAdvice {
         }
         if (body instanceof Result) {
             result = (Result) body;
+        }else {
+            result=Result.success(body);
         }
         String jsonResult = JSON.toJSONString(result);
         System.out.println("result:"+jsonResult);

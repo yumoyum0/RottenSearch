@@ -28,7 +28,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             if(userDB==null){
                 result=Result.failure("用户名或密码错误");
             }else {
-                result=Result.success("token");
+                result=Result.success(userDB.getId());
             }
         }catch (Exception e){
             result=Result.failure(e.getMessage());
