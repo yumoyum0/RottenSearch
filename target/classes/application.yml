@@ -14,7 +14,7 @@ spring:
 
 
   profiles:
-    active: windpo
+    active: xry
   web:
     resources:
       static-locations:

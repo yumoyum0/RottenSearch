@@ -1,0 +1,188 @@
+/*注册页面 sign*/
+.form {
+    width: 310px;
+    margin: 100px auto;
+}
+.form .tabs {
+    display: flex;
+    border-bottom: 1px solid #e2e2e2;
+    text-align: center;
+}
+.form .tabs .tab {
+    flex: 1;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 25px;
+    color: rgba(0, 0, 0, 0.4);
+    padding-bottom: 8px;
+    border-bottom: 2px solid transparent;
+}
+.form .tabs .tab a {
+    text-decoration : none;
+    color: rgba(0, 0, 0, 0.4);
+}
+.form .tabs .tab:focus {
+    outline: none;
+}
+.form .tabs .tab-selected {
+    color: #000;
+    border-bottom: 2px solid #1c1c1c;
+}
+.form .form-login {
+    margin-top: 9px;
+}
+.form .form-login .hint {
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+.form .form-login .hint .hint-icon {
+    width: 11px;
+    height: 11px;
+    margin-right: 6px;
+    background: url(../assets/images/form/hint-icon.png) no-repeat center/contain;
+}
+.form .form-login .hint .txt {
+    font-size: 10px;
+    line-height: 14px;
+    color: #ff4848;
+}
+.form .form-login input {
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #e2e2e2;
+    padding: 0 15px;
+    font-size: 12px;
+    color: #1a1a1a;
+}
+.form .form-login input:focus {
+    outline: none;
+    background: #e8f4ff;
+}
+.form .form-login .username {
+    margin-bottom: 10px;
+    line-height: 0;
+}
+.form .form-login .username ::-webkit-input-placeholder {
+    /* WebKit browsers */
+    font-size: 12px;
+    color: #8d8d8d;
+}
+.form .form-login .username :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    font-size: 12px;
+    color: #8d8d8d;
+}
+.form .form-login .username ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    font-size: 12px;
+    color: #8d8d8d;
+}
+.form .form-login .username :-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    font-size: 12px;
+    color: #8d8d8d;
+}
+.form .form-login .pwd {
+    margin-bottom: 10px;
+    position: relative;
+    line-height: 0;
+}
+.form .form-login .pwd ::-webkit-input-placeholder {
+    /* WebKit browsers */
+    font-size: 12px;
+    color: #8d8d8d;
+}
+.form .form-login .pwd :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    font-size: 12px;
+    color: #8d8d8d;
+}
+.form .form-login .pwd ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    font-size: 12px;
+    color: #8d8d8d;
+}
+.form .form-login .pwd :-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    font-size: 12px;
+    color: #8d8d8d;
+}
+.form .form-login .pwd .pwd-retrieve {
+    position: absolute;
+    top: 11px;
+    right: 15px;
+    font-size: 12px;
+    line-height: 17px;
+    color: #adadad;
+    text-decoration: none;
+}
+.form .form-login .auto-login input[type=checkbox]#auto-login-checkbox {
+    display: none;
+}
+.form .form-login .auto-login input[type=checkbox]#auto-login-checkbox + label:before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #e2e2e2;
+    vertical-align: middle;
+    margin-right: 8px;
+    background: #fff url(../assets/images/form/check.png) no-repeat center/12px 12px;
+    transition: all 0.2s;
+}
+.form .form-login .auto-login input[type=checkbox]#auto-login-checkbox:checked + label:before {
+    background: #33bd4c url(../assets/images/form/check.png) no-repeat center/12px 12px;
+    border-color: #33bd4c;
+}
+.form .form-login .auto-login > input {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+.form .form-login .auto-login > label {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    line-height: 17px;
+    color: #000000;
+}
+.form .form-signup {
+    margin-top: 39px;
+    line-height: 0;
+}
+.form .form-signup ::-webkit-input-placeholder {
+    /* WebKit browsers */
+    font-size: 12px;
+    color: #8d8d8d;
+}
+.form .form-signup :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    font-size: 12px;
+    color: #8d8d8d;
+}
+.form .form-signup ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    font-size: 12px;
+    color: #8d8d8d;
+}
+.form .form-signup :-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    font-size: 12px;
+    color: #8d8d8d;
+}
+.form .form-signup input {
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #e2e2e2;
+    padding: 0 15px;
+    font-size: 12px;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+.form .form-signup input:focus {
+    outline: none;
+    background: #e8f4ff;
+}

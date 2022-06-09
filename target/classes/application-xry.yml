@@ -3,12 +3,10 @@ spring:
     # 数据库驱动
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 数据库连接地址
-    url: jdbc:mysql://127.0.0.1:3306/rottenSearch?serverTimezone=GMT
+    url: jdbc:mysql://127.0.0.1:3306/rottensearch?serverTimezone=GMT
     username: root
-    password: 168178
+    password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
-
-
 index:
-  path: E:\\index_library
+  path: D:\\index_library
   numHits: 100

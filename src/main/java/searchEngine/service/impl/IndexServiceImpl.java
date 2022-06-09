@@ -183,7 +183,7 @@ public class IndexServiceImpl implements IndexService {
              * 关键词过滤
              */
             for (String filter:filterWords){
-                if (desc.contains(filter)||title.contains(filter)){
+                if (desc.contains(filter)){
                     cnt++;
                     n++;
                     continue outLoop;

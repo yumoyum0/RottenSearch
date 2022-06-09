@@ -17,20 +17,33 @@ import javax.annotation.Resource;
  * @Description: TODO
  * @DateTime: 2022/5/10 19:00
  **/
-@RestController
+@Controller
 @RequestMapping("/user")
 public class UserController {
     @Resource
     private UserService userService;
+
+
+    @GetMapping("/getLogin")
+    public String getLogin(){
+        return "login";
+    }
 
     /**
      * 登录
      * @param user 参数封装
      * @return Result
      */
-    @GetMapping(value = "/login")
-    public Result login(User user){
-        return userService.login(user);
+    @PostMapping(value = "/login")
+    public String login(User user){
+        userService.login(user);
+        return "search";
+    }
+
+
+    @GetMapping("/getRegister")
+    public String getRegister(){
+        return "register";
     }
 
     /**
@@ -38,8 +51,9 @@ public class UserController {
      * @param user 参数封装
      * @return Result
      */
-    @PostMapping(value = "/regist")
-    public Result regist(User user){
-        return userService.regist(user);
+    @PostMapping(value = "/register")
+    public String register(User user){
+         userService.regist(user);
+         return "login";
     }
 }
