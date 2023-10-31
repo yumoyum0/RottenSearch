@@ -29,5 +29,12 @@
       <jdbc-url>jdbc:mysql://localhost:3306/rottensearch</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="aliyun_windpo" uuid="dcf5fae5-bf3c-4b16-94d0-fcedc771cca5">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://119.23.253.40:7001/rottenSearch?serverTimezone=GMT</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

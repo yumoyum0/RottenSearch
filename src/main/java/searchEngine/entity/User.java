@@ -1,6 +1,7 @@
 package searchEngine.entity;
 
 import com.alibaba.fastjson2.annotation.JSONField;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -9,6 +10,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.apache.ibatis.type.Alias;
+import org.springframework.context.annotation.Primary;
 
 import java.util.List;
 
@@ -27,8 +29,8 @@ public class User {
     /**
      * 用户id
      */
-    @JSONField(name = "user_id")
-    @TableId(value = "user_id")
+    @JSONField(name = "id")
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
     /**

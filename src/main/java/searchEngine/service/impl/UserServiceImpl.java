@@ -1,5 +1,6 @@
 package searchEngine.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,12 +24,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public Result login(User user) {
         Result result = new Result();
+
         try {
-            final User userDB = userMapper.login(user.getUsername(), user.getPassword());
+            final User userDB = userMapper.selectOne(new QueryWrapper<User>()
+                    .eq("username",user.getUsername()).eq("password",user.getPassword()));
             if(userDB==null){
                 result=Result.failure("用户名或密码错误");
             }else {
-                result=Result.success(userDB.getId());
+                result=Result.success(userDB.getUsername());
             }
         }catch (Exception e){
             result=Result.failure(e.getMessage());
@@ -40,14 +43,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Override
     public Result regist(User user) {
         Result result = new Result();
+        System.out.println(user.getUsername() + "-" + user.getPassword());
         try {
             //判断数据库中是否存在用户
-            final User existUser = userMapper.queryUserByusername(user.getUsername());
-            if (existUser!=null){
+            boolean exists = userMapper.exists(new QueryWrapper<User>().eq("username", user.getUsername()));
+            if (exists){
                 result=Result.failure("用户已存在");
             }else {
                 //注册用户
-                userMapper.regist(user);
+                userMapper.insert(user);
                 result=Result.success(null);
             }
         }catch (Exception e){

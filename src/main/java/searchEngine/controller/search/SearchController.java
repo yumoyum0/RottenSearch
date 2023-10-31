@@ -80,7 +80,7 @@ public class SearchController {
     @RequestMapping("/queryDoc")
     public String queryDoc(@RequestParam("query") String query,
                            @RequestParam(value = "page",required = false,defaultValue = "1") Integer page,
-                           @RequestParam(value = "limit",required = false,defaultValue = "10") Integer limit,
+                           @RequestParam(value = "limit",required = false,defaultValue = "50") Integer limit,
                            Model model,HttpServletRequest request){
         try {
 
