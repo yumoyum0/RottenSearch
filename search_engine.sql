@@ -47,10 +47,10 @@ SET FOREIGN_KEY_CHECKS = 1;
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user`  (
-`user_id` int(0) NOT NULL COMMENT '用户id',
+`id` int(0) NOT NULL COMMENT '用户id',
 `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '用户名',
 `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '用户密码',
-PRIMARY KEY (`user_id`) USING BTREE
+PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
@@ -65,7 +65,7 @@ CREATE TABLE `user_stars`  (
    `uid` int(0) NOT NULL COMMENT '关联到user表的user_id',
    PRIMARY KEY (`id`) USING BTREE,
    INDEX `USER_ID`(`uid`) USING BTREE,
-   CONSTRAINT `USER_ID` FOREIGN KEY (`uid`) REFERENCES `user` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+   CONSTRAINT `USER_ID` FOREIGN KEY (`uid`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;

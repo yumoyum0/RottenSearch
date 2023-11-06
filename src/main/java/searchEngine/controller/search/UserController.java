@@ -2,14 +2,14 @@ package searchEngine.controller.search;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import searchEngine.annotation.SecurityParameter;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import searchEngine.entity.User;
-import searchEngine.pojo.Result;
 import searchEngine.service.UserService;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author: WindPo
@@ -35,12 +35,12 @@ public class UserController {
      * @return Result
      */
     @PostMapping(value = "/login")
-    public String login(@RequestParam("username") String username
+    public String login(@RequestParam("name") String name
             , @RequestParam("password") String password
-            , Model model, HttpServletRequest request) {
+            , Model model) {
 
         User user = new User();
-        user.setUsername(username);
+        user.setUsername(name);
         user.setPassword(password);
 
         if (userService.login(user).getSuccess()) {
@@ -67,11 +67,11 @@ public class UserController {
      */
     @PostMapping(value = "/register")
     public String register(
-            @RequestParam("username") String username
-            , @RequestParam("password") String password
-            , Model model, HttpServletRequest request) {
+            String name
+            ,String password
+            , Model model) {
         User user = new User();
-        user.setUsername(username);
+        user.setUsername(name);
         user.setPassword(password);
         if (userService.regist(user).getSuccess()) {
             return "login";
