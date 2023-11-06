@@ -1,161 +1,191 @@
-html,
 body {
-    height: 100%;
-    margin: 0;
-    padding-bottom: 100px;
+  margin: 0;
 }
 
-ul,
-li {
-    margin: 0;
-    padding: 0;
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 50vw;
+  width: calc(100vw - 30px);
+  justify-content: center;
+  margin: 10px auto;
+  height: fit-content;
 }
-li {
-    list-style: none;
+.header .usr-panel {
+  height: 60px;
+  position: absolute;
+  float: right;
+  right: 25px;
 }
-
-h1,
-h2 {
-    margin: 0;
-}
-
-p {
-    margin: 0;
-    padding: 0;
-}
-/* 浏览器都有自己的默认样式，以上部分为清除浏览器默认样式 */
-
-header{
-
-
-
-    padding: 10px 20px 10px 20px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid darkgray;
+.header .logo {
+  display: block;
+  height: 60px;
+  object-fit: fill;
 }
 
-header .line-one{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.search-result-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100vw - 50px);
+  height: fit-content;
+  margin: auto;
+}
+.search-result-form form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  height: fit-content;
+  gap: 20px;
+}
+.search-result-form .search-input {
+  box-sizing: content-box;
+  max-width: 500px;
+  width: calc(100% - 32px);
+  padding: 10px 18px;
+  height: 24px;
+  border-radius: 20px;
+  border: 1px solid #e2e2e2;
+}
+.search-result-form .search-button {
+  box-sizing: content-box;
+  flex: none;
+  width: 5rem;
+  height: 24px;
+  border-radius: 20px;
+  padding: 6px 5px;
+  border: 1px solid #e2e2e2;
+  box-shadow: none;
+  background-color: transparent;
+}
+.search-result-form .search-button:focus,
+.search-result-form .search-button:hover,
+.search-result-form .search-button:focus-visible {
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+  border: 1px solid transparent;
+  background-color: rgba(250, 250, 250);
+}
+.search-result-form .search-input:focus-visible,
+.search-result-form .search-input:focus {
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  outline: none;
 }
 
-header .line-two{
-    font-size: 12px;
-    width: 100%;
-    display: flex;
-    overflow: hidden;
+.mainContent {
+  width: calc(100vw - 40px);
+  max-width: 1000px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media screen and (min-width: 840px) {
+  .mainContent {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.mainContent .search-result {
+  width: calc(100% - 5px);
+  height: fit-content;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.search-result .each-doc {
+  width: 100%;
+}
+.search-result .each-doc .desc {
+  width: 100%;
+}
+.search-result .each-doc .desc img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
 }
 
-header .line-two li{
-    margin-right: 15px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+.search-result .each-doc .desc .link {
+  display: block;
+  padding: 10px;
+  color: rgba(0, 0, 0, 1);
+  text-decoration: none;
+}
+.search-result .each-doc .desc .link:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+.page {
+  margin: 40px auto 20px;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100vw - 80px);
+  padding: 10px 20px;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+}
+.last,
+.next {
+  width: 70px;
+  height: 24px;
+}
+.last a,
+.next a {
+  color: rgba(0, 0, 0);
+  text-decoration: none;
+}
+.last a:hover,
+.next a:hover {
+  color: rgba(0, 0, 0, 0.6);
 }
 
-header .line-two a{
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+.about {
+  margin: auto;
+  padding: 10px 0;
+  width: calc(100vw - 50px);
+  gap: 30px;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.title {
+  flex: none;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+  max-width: 560px;
+  padding: 0 20px;
+  overflow: hidden;
 }
 
-a{
-    text-decoration: none;
-}
-header .search form{
-    display: flex;
-    font-size: 30px;
-    font-weight: bold;
-    font-family: Algerian;
-    height: 50px;
-}
-header .search a{
-    cursor: pointer;
-    margin-top: 5px;
-    color: #000;
-}
-header .search form .search-input{
-    height: 40px;
-    width: 500px;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 5px;
-    margin-top: 2px;
-}
-header .search form button{
-    height: 46px;
-    width: 100px;
-    border: none;
-    border-radius: 10px;
-    background: #4e6ef2;
-    color: white;
-    margin-top: 2px;
-    font-size: 17px;
-    font-weight: 500;
+.list a {
+  flex: none;
+  font-size: 14px;
+  display: block;
+  text-decoration: none;
+  color: #1a1a1a;
+  max-width: 120px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-
-/* 主体 */
-main{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding-left: 16px;
-    padding-right: 16px;
-}
-
-main .search-result{
-    margin-right: 10px;
-}
-
-main .search-result .each-doc img {
-    border-radius: 5px;
-    height: 200px;
-    width: 100%;
-    margin-bottom: -5px;
-}
-
-.page{
-    height: 100px;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    background-color: #f5f5f6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid darkgray;
-}
-
-.page .page-list{
-    height: 30px;
-    display: flex;
-}
-
-.page .page-list li{
-    line-height: 36px;
-    width: 36px;
-    height: 36px;
-    border: none;
-    border-radius: 6px;
-    background-color: #fff;
-    color: #3951b3;
-    margin-right: 12px;
-    display: inline-block;
-    vertical-align: text-bottom;
-    text-align: center;
-    text-decoration: none;
-    overflow: hidden;
-}
-
-
-.page .page-list .active{
-    background: #4e6ef2;
-    color: #ffffff;
-    font-weight: normal;
-}
-
-.page .page-list .prev,.page .page-list .next{
-    width: 60px;
+.usr-panel .user-login,
+.usr-panel .user-register {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
 }
