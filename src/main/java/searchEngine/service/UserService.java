@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import searchEngine.entity.User;
 import searchEngine.pojo.Result;
 
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @Author: WindPo
  * @Description: TODO
@@ -15,7 +17,7 @@ public interface UserService extends IService<User> {
      * @param user 用户信息
      * @return 返回登录结果
      */
-    Result login(User user);
+    Result login(User user, HttpServletResponse response);
 
     /**
      * 用户注册接口

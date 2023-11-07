@@ -10,6 +10,8 @@ import searchEngine.entity.User;
 import searchEngine.service.UserService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @Author: WindPo
@@ -21,7 +23,6 @@ import javax.annotation.Resource;
 public class UserController {
     @Resource
     private UserService userService;
-
 
     @GetMapping("/getLogin")
     public String getLogin() {
@@ -37,13 +38,13 @@ public class UserController {
     @PostMapping(value = "/login")
     public String login(@RequestParam("name") String name
             , @RequestParam("password") String password
-            , Model model) {
+            , Model model, HttpServletResponse response) {
 
         User user = new User();
         user.setUsername(name);
         user.setPassword(password);
 
-        if (userService.login(user).getSuccess()) {
+        if (userService.login(user,response).getSuccess()) {
             model.addAttribute("code", "200");
             return "search";
         } else {

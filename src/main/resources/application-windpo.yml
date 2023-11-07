@@ -3,10 +3,15 @@ spring:
     # 数据库驱动
     driver-class-name: com.mysql.cj.jdbc.Driver
     # 数据库连接地址
-    url: jdbc:mysql://127.0.0.1:3306/rottenSearch?serverTimezone=GMT
+    url: jdbc:mysql://119.23.253.40:7001/rottenSearch?serverTimezone=GMT
     username: root
     password: hanser
     type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: 119.23.253.40
+    database: 1
+    port: 65345
+    password: hanser
 index:
-  path: D:\\index_library
+  path: /home/windpo/workspace/DB/index_library
   numHits: 100
