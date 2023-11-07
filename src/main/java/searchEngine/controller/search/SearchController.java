@@ -1,32 +1,22 @@
 package searchEngine.controller.search;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import searchEngine.entity.Doc;
-import searchEngine.pojo.QueryRequestBody;
 import searchEngine.pojo.QueryResponseBody;
 import searchEngine.pojo.Result;
 import searchEngine.pojo.SearchPair;
-import searchEngine.service.DocService;
 import searchEngine.service.IndexService;
-import searchEngine.service.StarService;
-import searchEngine.service.UserService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.net.http.HttpRequest;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 @Slf4j
 @Controller
@@ -38,15 +28,6 @@ public class SearchController {
      */
     @Value("${index.numHits}")
     private Integer numHits;
-
-    @Resource
-    private DocService docService;
-
-    @Resource
-    private UserService userService;
-
-    @Resource
-    private StarService starService;
 
     @Resource
     private IndexService indexService;

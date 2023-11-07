@@ -1,22 +1,19 @@
 import com.huaban.analysis.jieba.JiebaSegmenter;
 import com.huaban.analysis.jieba.SegToken;
 import org.junit.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Author: yumo
- * @Description: TODO
- * @DateTime: 2022/5/9 16:34
+ * @Description: 分词测试类
  **/
 
 public class AnalysisTest {
 
 
     @Test
-    public void testDemo(){
+    public void analysis(){
         JiebaSegmenter segmenter = new JiebaSegmenter();
         String[] sentences={
                 " 基于 trie 树结构实现高效词图扫描" ,

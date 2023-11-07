@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import searchEngine.pojo.Result;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,8 +24,7 @@ public class AnalysisController {
         JiebaSegmenter segmenter = new JiebaSegmenter();
         List<SegToken> tokenList = segmenter.process(content, JiebaSegmenter.SegMode.SEARCH);
         List<String> wordlist = tokenList.stream().map(e -> e.word).collect(Collectors.toList());
-        String data = JSON.toJSONString(wordlist);
-        return JSON.toJSONString(Result.success(data));
+        return JSON.toJSONString(wordlist);
     }
 
 
