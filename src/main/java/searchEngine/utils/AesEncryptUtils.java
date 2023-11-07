@@ -2,7 +2,6 @@ package searchEngine.utils;
 
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -56,7 +55,6 @@ public class AesEncryptUtils {
         cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(decryptKey.getBytes(), "AES"));
         // 采用base64算法进行转码,避免出现中文乱码
         byte[] encryptBytes = Base64.decodeBase64(encryptStr);
-        System.out.println(encryptBytes.length);
         byte[] decryptBytes = cipher.doFinal(encryptBytes);
 
         return new String(decryptBytes);
