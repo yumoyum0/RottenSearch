@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import searchEngine.entity.User;
+import searchEngine.pojo.Result;
 import searchEngine.service.UserService;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -29,8 +29,6 @@ public class UserController {
 
     /**
      * 登录
-     *
-     * @param user 参数封装
      * @return Result
      */
     @PostMapping(value = "/login")
@@ -41,13 +39,13 @@ public class UserController {
         User user = new User();
         user.setUsername(name);
         user.setPassword(password);
-
-        if (userService.login(user,response).getSuccess()) {
+        Result result = userService.login(user, response);
+        if (result.getSuccess()) {
             model.addAttribute("code", "200");
             return "search";
         } else {
             model.addAttribute("code", "500");
-            model.addAttribute("errMsg", ".......");
+            model.addAttribute("errMsg", "登陆失败！"+result.getErrMsg());
             return "login";
         }
     }
@@ -72,12 +70,14 @@ public class UserController {
         User user = new User();
         user.setUsername(name);
         user.setPassword(password);
-        if (userService.regist(user).getSuccess()) {
+        Result result = userService.regist(user);
+        if (result.getSuccess()) {
             model.addAttribute("code", "200");
+            model.addAttribute("errMsg", "注册成功！");
             return "login";
         } else {
             model.addAttribute("code", "500");
-            model.addAttribute("errMsg", ".......");
+            model.addAttribute("errMsg", "注册失败！"+result.getErrMsg());
             return "register";
         }
     }
