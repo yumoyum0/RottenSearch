@@ -18,14 +18,15 @@
     <link rel="stylesheet" href="../static/css/search.css" />
   </head>
   <body>
-    <!--头部 1 未登录状态-->
     <header>
-      <!--左边为搜索框，右边为登录注册-->
       <div class="header">
         <img src="../static/image/logo.png" alt="logo" class="logo" />
         <div class="usr-panel">
           <a class="user-login" href="/user/getLogin">登录</a> /
           <a class="user-register" href="/user/getRegister">注册</a>
+        </div>
+        <div class="usr-msg"  style="display: none">
+          Hello, <span id="username"></span>
         </div>
       </div>
       <div class="search-result-form">
@@ -62,7 +63,7 @@
     <!--        <span></span>-->
     <!--    </div>-->
     <!--</header>-->
-    <!--主体，显示查询结果-->
+    </div>
     <main class="mainContent">
       <div
         class="search-result"
@@ -99,18 +100,8 @@
           下一页 >
         </a>
       </div>
-      <!--    <ul class="page-list" >-->
-      <!--        <li th:if="${queryResponseBody.page>1}" class="prev"><a th:href="@{/search/queryDoc(query=${query},page=${(queryResponseBody.page)-1})}">上一页</a></li>-->
-      <!--        <li th:if="${queryResponseBody.page==1}" class="prev disabled"><a>上一页</a></li>-->
-      <!--        <li th:if="${queryResponseBody.page>2}" th:class="${num == queryResponseBody.page?'active':''}" class="active" th:each="num:${#numbers.sequence((queryResponseBody.page)-2,queryResponseBody.page+2)}">-->
-      <!--            <a th:href="@{/search/queryDoc(query=${query},page=${num})}">[[${num}]]</a>-->
-      <!--        </li>-->
-      <!--        <li th:if="${queryResponseBody.page<=2}" th:class="${num == queryResponseBody.page?'active':''}" class="active" th:each="num:${#numbers.sequence(1,5)}">-->
-      <!--            <a th:href="@{/search/queryDoc(query=${query},page=${num})}">[[${num}]]</a>-->
-      <!--        </li>-->
-      <!--        <li th:if="${queryResponseBody.page<queryResponseBody.pageCount}" class="next"><a th:href="@{/search/queryDoc(query=${query},page=${(queryResponseBody.page)+1})}">下一页</a></li>-->
-      <!--        <li th:if="${queryResponseBody.page==queryResponseBody.pageCount}" class="next disabled"><a>下一页</a></li>-->
-      <!--    </ul>-->
+
     </div>
+  <script src="../static/js/searchUserPanel.js"></script>
   </body>
 </html>

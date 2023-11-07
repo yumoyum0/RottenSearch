@@ -6,6 +6,14 @@
     <link rel="stylesheet" type="text/css" href="../static/css/search.css" />
   </head>
   <body>
+
+    <div class="usr-panel">
+      <a class="user-login" href="/user/getLogin">登录</a> /
+      <a class="user-register" href="/user/getRegister">注册</a>
+    </div>
+    <div class="usr-msg"  style="display: none">
+      Hello, <span id="username"></span>
+    </div>
     <div class="search">
       <div class="logoContainer">
         <img src="../static/image/logo.png" alt="logo" class="logo" />
@@ -23,5 +31,7 @@
         <input type="hidden" name="limit" value="36" />
       </form>
     </div>
+  <script src="../static/js/searchUserPanel.js">
+  </script>
   </body>
 </html>

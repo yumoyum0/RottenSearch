@@ -14,6 +14,7 @@
         <div class="tab signup tab-selected" tabindex="0">注册</div>
       </div>
       <form class="panel" th:action="@{/user/register}" method="post">
+        <div class="errMsg" th:if="${errMsg}"><span th:text="${errMsg}"></span></div>
         <input
           type="text"
           class="username"

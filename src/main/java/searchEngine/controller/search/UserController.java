@@ -74,7 +74,6 @@ public class UserController {
         user.setPassword(password);
         if (userService.regist(user).getSuccess()) {
             model.addAttribute("code", "200");
-            model.addAttribute("errMsg", ".......");
             return "login";
         } else {
             model.addAttribute("code", "500");

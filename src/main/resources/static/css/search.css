@@ -23,6 +23,26 @@ p {
   padding: 0;
 }
 /* 浏览器都有自己的默认样式，以上部分为清除浏览器默认样式 */
+.usr-panel {
+  position: absolute;
+  float: right;
+  right: 30px;
+  top: 10px;
+}
+.usr-msg {
+  position: absolute;
+  float: right;
+  right: 30px;
+  top: 10px;
+}
+.usr-panel .user-login,
+.usr-panel .user-register {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+}
 
 .search {
   display: flex;
@@ -33,6 +53,7 @@ p {
 }
 
 .search .logoContainer {
+  user-select: none;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

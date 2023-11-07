@@ -99,3 +99,9 @@ body {
 .form .submit:focus-visible {
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
 }
+.errMsg {
+  width: calc(100% - 40px);
+  padding: 0 20px;
+  color: #ff4848;
+  font-size: 14px;
+}
