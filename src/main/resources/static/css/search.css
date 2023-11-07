@@ -31,10 +31,14 @@ p {
 }
 .usr-msg {
   position: absolute;
+  display: flex;
+  gap: 10px;
+  align-items: center;
   float: right;
   right: 30px;
-  top: 10px;
+  top: 20px;
 }
+
 .usr-panel .user-login,
 .usr-panel .user-register {
   border: none;
@@ -109,4 +113,13 @@ p {
   height: 24px;
   border: 1px solid transparent;
   outline: none;
+}
+
+.change-account {
+  color: rgba(0,0,0);
+  font-size: 14px;
+  text-decoration: none;
+}
+.change-account:hover {
+  color: rgba(0,0,0,0.5);
 }
