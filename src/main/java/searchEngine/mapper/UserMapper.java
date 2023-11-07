@@ -6,9 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import searchEngine.entity.User;
 
 /**
- * @Author: WindPo
  * @Description: finished
- * @DateTime: 2022/5/10 13:54
  **/
 @Mapper
 public interface UserMapper extends BaseMapper<User> {

@@ -17,9 +17,7 @@ import java.sql.Wrapper;
 import java.util.List;
 
 /**
- * @Author: xun
  * @Description: TODO
- * @DateTime: 2022/5/10 14:02
  **/
 @Service
 public class StarServiceImpl extends ServiceImpl<StarMapper,Star> implements StarService {

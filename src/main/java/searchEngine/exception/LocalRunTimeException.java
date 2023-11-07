@@ -2,9 +2,7 @@ package searchEngine.exception;
 
 import searchEngine.enums.ErrorEnum;
 
-/**
- * @author yumo
- */
+
 public class LocalRunTimeException extends RuntimeException {
 
     private ErrorEnum errorEnum;

@@ -4,7 +4,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
- * @author yumo
  * @Description: 映射关系表的操作
  */
 @Mapper

@@ -48,7 +48,6 @@ public class IndexServiceImpl implements IndexService {
 
     /**
      * 创建索引库
-     * @Author: yumo
      * @throws IOException
      */
     @Override
@@ -124,7 +123,6 @@ public class IndexServiceImpl implements IndexService {
 
     /**
      * 从索引库中针对给定的域数组查询关键词
-     * @Author: yumo
      * @param query 查询关键词
      * @param filterWords 过滤关键词数组
      * @param page 当前页码
@@ -214,7 +212,6 @@ public class IndexServiceImpl implements IndexService {
 
     /**
      * 相关搜索
-     * @Author: xun
      * @param words 查询的关键词
      * @return 相关字段
      */
@@ -254,7 +251,6 @@ public class IndexServiceImpl implements IndexService {
 
     /**
      * 为相关搜索提供的搜索函数
-     * @Author: xun
      * @param words 关键词
      * @param numHits 预期命中数
      * @return 相关数据的desc`
@@ -294,7 +290,6 @@ public class IndexServiceImpl implements IndexService {
 
     /**
      * 检查是否有中英文标点符号
-     * @Author: xun
      * @param s 提供检查的字符串
      * @return boolean
      */

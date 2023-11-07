@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 /**
- * @Author: yumo
  * @Description: 执行查询操作时请求的json字段
- * @DateTime: 2022/5/9 17:51
  **/
 @Data
 @AllArgsConstructor

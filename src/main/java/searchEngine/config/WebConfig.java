@@ -9,9 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import searchEngine.interceptpr.MyInterceptor;
 
 /**
- * @Author: yumo
  * @Description: 拦截器配置类(样板)
- * @DateTime: 2022/5/10 12:56
  **/
 @Configuration
 @ConditionalOnMissingBean(MyInterceptor.class)

@@ -5,9 +5,7 @@ import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 /**
- * @Author: yumo
  * @Description: 过滤器（样板）
- * @DateTime: 2022/5/10 13:04
  **/
 @WebFilter(urlPatterns = "")
 public class MyFilter implements Filter {

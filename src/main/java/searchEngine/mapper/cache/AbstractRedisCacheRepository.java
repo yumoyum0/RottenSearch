@@ -5,9 +5,7 @@ import searchEngine.service.RedisService;
 import java.util.function.Consumer;
 
 /**
- * @Author: yumo
  * @Description: Redis实现缓存
- * @DateTime: 2022/5/10 14:05
  **/
 public abstract class AbstractRedisCacheRepository<K,V> extends AbstractCacheRepository<K,V> {
     private RedisService redisService;

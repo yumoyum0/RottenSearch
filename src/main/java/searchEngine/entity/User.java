@@ -15,9 +15,7 @@ import org.springframework.context.annotation.Primary;
 import java.util.List;
 
 /**
- * @Author: yumo
  * @Description: 用户实体类，对应数据库的user表
- * @DateTime: 2022/5/9 15:35
  **/
 @Data
 @AllArgsConstructor

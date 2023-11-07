@@ -11,9 +11,7 @@ import lombok.ToString;
 import org.apache.ibatis.type.Alias;
 
 /**
- * @Author: yumo
  * @Description: 文档实体类，对应数据库中的document表
- * @DateTime: 2022/5/9 18:20
  **/
 @Data
 @AllArgsConstructor

@@ -15,9 +15,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * @Author: yumo
  * @Description: TODO
- * @DateTime: 2022/5/10 14:01
  **/
 @Service
 public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements DocService {

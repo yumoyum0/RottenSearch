@@ -8,9 +8,7 @@ import searchEngine.service.RedisService;
 import javax.annotation.Resource;
 
 /**
- * @Author: yumo
  * @Description: 实现缓存document表的数据
- * @DateTime: 2022/5/10 21:05
  **/
 @Repository
 public class DocRepository extends AbstractRedisCacheRepository<String, Doc>{

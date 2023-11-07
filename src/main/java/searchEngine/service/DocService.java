@@ -11,9 +11,7 @@ import searchEngine.entity.Doc;
 import java.util.List;
 
 /**
- * @Author: yumo
  * @Description: TODO
- * @DateTime: 2022/5/10 14:00
  **/
 public interface DocService extends IService<Doc> {
     public List<Doc> getAllDoc();

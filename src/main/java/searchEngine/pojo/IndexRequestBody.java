@@ -7,9 +7,7 @@ import lombok.ToString;
 import searchEngine.entity.Doc;
 
 /**
- * @Author: yumo
  * @Description: 增加/修改索引
- * @DateTime: 2022/5/9 18:08
  **/
 @Data
 @AllArgsConstructor

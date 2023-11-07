@@ -21,9 +21,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
 /**
- * @Author: yumo
  * @Description: 请求体解密增强器
- * @DateTime: 2022/5/10 16:45
  **/
 @ControllerAdvice(basePackages = "searchEngine.controller" )
 @Slf4j

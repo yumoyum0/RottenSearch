@@ -16,7 +16,6 @@ import java.nio.file.Paths;
 import java.util.Locale;
 
 /**
- * @Author: yumo
  * @Description: JieBa分析器
  */
 

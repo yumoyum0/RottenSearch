@@ -8,9 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Author: yumo
  * @Description: MybatisPlus配置类
- * @DateTime: 2022/5/10 12:22
  **/
 @Configuration
 @MapperScan("searchEngine.mapper")

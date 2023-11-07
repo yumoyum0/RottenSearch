@@ -14,9 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Author: WindPo
  * @Description: TODO
- * @DateTime: 2022/5/10 19:00
  **/
 @Controller
 @RequestMapping("/user")
@@ -75,6 +73,8 @@ public class UserController {
         user.setUsername(name);
         user.setPassword(password);
         if (userService.regist(user).getSuccess()) {
+            model.addAttribute("code", "200");
+            model.addAttribute("errMsg", ".......");
             return "login";
         } else {
             model.addAttribute("code", "500");

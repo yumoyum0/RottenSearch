@@ -13,9 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @Author: yumo
  * @Description: 分词测试,controller样板
- * @DateTime: 2022/5/9 16:31
  **/
 @RestController
 @RequestMapping(value = "analysis")

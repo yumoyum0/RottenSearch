@@ -13,9 +13,7 @@ import org.apache.ibatis.type.Alias;
 import java.util.List;
 
 /**
- * @Author: yumo
  * @Description: 收藏夹实体类，对应数据库里的star表
- * @DateTime: 2022/5/9 19:04
  **/
 @Data
 @AllArgsConstructor

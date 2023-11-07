@@ -7,9 +7,7 @@ import searchEngine.pojo.Result;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Author: WindPo
  * @Description: TODO
- * @DateTime: 2022/5/10 13:58
  **/
 public interface UserService extends IService<User> {
     /**

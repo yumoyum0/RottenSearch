@@ -9,9 +9,7 @@ import searchEngine.entity.Star;
 import java.util.List;
 
 /**
- * @Author: xun
  * @Description: TODO
- * @DateTime: 2022/5/10 13:55
  **/
 @Mapper
 public interface StarMapper extends BaseMapper<Star> {

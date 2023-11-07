@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Author: yumo
  * @Description: 拦截器(样板)
- * @DateTime: 2022/5/10 12:57
  **/
 
 public class MyInterceptor implements HandlerInterceptor {

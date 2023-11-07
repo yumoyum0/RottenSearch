@@ -10,9 +10,7 @@ import searchEngine.entity.Doc;
 import java.util.List;
 
 /**
- * @Author: yumo
  * @Description: 执行查询操作时响应的json字段，传给Result类的data
- * @DateTime: 2022/5/9 18:00
  **/
 @Data
 @AllArgsConstructor

@@ -3,9 +3,7 @@ package searchEngine.mapper.cache;
 import java.util.function.Consumer;
 
 /**
- * @Author: yumo
  * @Description: TODO
- * @DateTime: 2022/5/10 14:04
  **/
 public abstract class AbstractCacheRepository<K,V> {
     /**

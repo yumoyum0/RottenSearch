@@ -2,9 +2,6 @@ package searchEngine.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.sun.net.httpserver.HttpServer;
-import org.springframework.beans.factory.annotation.Autowired;
-import javax.servlet.http.Cookie;
 import org.springframework.stereotype.Service;
 import searchEngine.entity.User;
 import searchEngine.mapper.UserMapper;
@@ -13,19 +10,10 @@ import searchEngine.service.UserService;
 import searchEngine.utils.AesEncryptUtils;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
-import java.time.Duration;
-import java.util.HashMap;
-import java.util.Objects;
-import java.util.regex.Pattern;
 
-/**
- * @Author: WindPo
- * @Description: TODO
- * @DateTime: 2022/5/10 13:59
- **/
+
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     private final String SECRETKEY="xr9A2r2+KTsU3VLP";
@@ -36,7 +24,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public Result login(User user,HttpServletResponse response) {
         Result result = new Result();
         try {
-            user.setPassword(AesEncryptUtils.decrypt(user.getPassword(),SECRETKEY));
+            user.setPassword(AesEncryptUtils.encrypt(user.getPassword(),SECRETKEY));
             final User userDB = userMapper.selectOne(new QueryWrapper<User>()
                     .eq("username",user.getUsername()).eq("password",user.getPassword()));
             if(userDB==null){

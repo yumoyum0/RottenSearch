@@ -7,9 +7,7 @@ import searchEngine.pojo.SearchPair;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * @author yumo
- */
+
 public interface IndexService {
     /**
      * 创建索引库

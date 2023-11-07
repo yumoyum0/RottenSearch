@@ -4,9 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @Author: yumo
  * @Description: RSA属性
- * @DateTime: 2022/5/10 15:31
  **/
 
 @Slf4j

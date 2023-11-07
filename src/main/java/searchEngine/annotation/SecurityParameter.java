@@ -5,9 +5,7 @@ import org.springframework.web.bind.annotation.Mapping;
 import java.lang.annotation.*;
 
 /**
- * @Author: yumo
  * @Description: TODO
- * @DateTime: 2022/5/10 16:42
  **/
 @Target({ElementType.TYPE,ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)

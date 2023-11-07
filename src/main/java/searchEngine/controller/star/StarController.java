@@ -10,10 +10,6 @@ import searchEngine.service.StarService;
 
 import java.util.List;
 
-/**
- * @Author xun
- * @create 2022/5/18 17:11
- */
 @Slf4j
 @Controller
 @RequestMapping(value = "/star")

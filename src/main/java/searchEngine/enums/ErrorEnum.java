@@ -1,9 +1,7 @@
 package searchEngine.enums;
 
 /**
- * @Author: yumo
  * @Description: 错误枚举类(未完成)
- * @DateTime: 2022/5/10 14:20
  **/
 public enum ErrorEnum {
     ;

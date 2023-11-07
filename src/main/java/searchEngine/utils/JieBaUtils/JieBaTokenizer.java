@@ -13,7 +13,6 @@ import java.text.BreakIterator;
 import java.util.*;
 
 /**
- * @author yumo
  * @Description: JieBa分词器
  */
 

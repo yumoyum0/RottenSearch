@@ -10,9 +10,7 @@ import searchEngine.enums.ErrorEnum;
 import java.io.Serializable;
 
 /**
- * @Author: yumo
  * @Description: 前端统一返回类型
- * @DateTime: 2022/5/9 18:04
  **/
 @Data
 @AllArgsConstructor

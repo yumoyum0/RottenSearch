@@ -8,9 +8,7 @@ import searchEngine.pojo.Result;
 import java.util.List;
 
 /**
- * @Author: xun
  * @Description: 收藏夹的增删改查
- * @DateTime: 2022/5/10 14:02
  **/
 public interface StarService extends IService<Star> {
     /**

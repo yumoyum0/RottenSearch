@@ -12,11 +12,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import searchEngine.pojo.Result;
 
 /**
- * @Author: yumo
  * @Description: Json响应体增强器
  * 允许在执行@ResponseBody或ResponseEntity控制器方法之后，但在使用HttpMessageConverter写入正文之前自定义响应。
  * 实现可以直接在RequestMappingHandlerAdapter和ExceptionHandlerExceptionResolver中注册，或者更可能使用@ControllerAdvice进行注释，在这种情况下，它们都将被自动检测到。
- * @DateTime: 2022/5/10 14:50
  **/
 @RestControllerAdvice(basePackages = "searchEngine.controller")
 @Order(value = 3)

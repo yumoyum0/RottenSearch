@@ -21,9 +21,7 @@ import java.util.Objects;
 import java.util.Random;
 
 /**
- * @Author: yumo
  * @Description: 响应体加密增强器
- * @DateTime: 2022/5/10 18:32
  **/
 @Component
 @ControllerAdvice(basePackages = "searchEngine.controller.search")
